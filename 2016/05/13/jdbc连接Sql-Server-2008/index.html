@@ -4,17 +4,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016 | Lemostic</title>
+  <title>jdbc连接Sql Server 2008 | Lemostic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="github Hexo static blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lemostic">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="下载驱动包
+1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c
+
+数据库连接信息
+1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`$ user">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jdbc连接Sql Server 2008">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/index.html">
 <meta property="og:site_name" content="Lemostic">
-<meta property="og:description" content="github Hexo static blog">
+<meta property="og:description" content="下载驱动包
+1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c
+
+数据库连接信息
+1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`$ user">
+<meta property="og:updated_time" content="2016-05-13T03:58:53.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lemostic">
-<meta name="twitter:description" content="github Hexo static blog">
+<meta name="twitter:title" content="jdbc连接Sql Server 2008">
+<meta name="twitter:description" content="下载驱动包
+1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c
+
+数据库连接信息
+1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`$ user">
   
     <link rel="alternative" href="/atom.xml" title="Lemostic" type="application/atom+xml">
   
@@ -71,77 +84,78 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/05/13/jdbc连接Sql-Server-2008/" class="archive-article-date">
-  <time datetime="2016-05-13T03:42:25.000Z" itemprop="datePublished">5月 13</time>
+      <section id="main"><article id="post-jdbc连接Sql-Server-2008" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/13/jdbc连接Sql-Server-2008/" class="article-date">
+  <time datetime="2016-05-13T03:42:25.000Z" itemprop="datePublished">2016-05-13</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/13/jdbc连接Sql-Server-2008/">jdbc连接Sql Server 2008</a>
+    <h1 class="article-title" itemprop="name">
+      jdbc连接Sql Server 2008
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/05/10/Welcome to MarkdownPad 2/" class="archive-article-date">
-  <time datetime="2016-05-10T02:51:01.091Z" itemprop="datePublished">5月 10</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/10/Welcome to MarkdownPad 2/">Welcome to MarkdownPad 2</a>
-    </h1>
-  
+        <ol>
+<li><p>下载驱动包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库连接信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver</span><br><span class="line">$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`</span><br><span class="line">$ user=`sa`</span><br><span class="line">$ password=`数据库访问密码`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>java代码<br> public static void main(String[] args) throws ClassNotFoundException {</p>
+<pre><code>String driverClass = &quot;com.microsoft.jdbc.sqlserver.SQLServerDriver&quot;;
+String url = &quot;jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=test&quot;;
+String username = &quot;sa&quot;;
+String password = &quot;password&quot;;
+Class.forName(driverClass);
+try {
+    Connection connection = DriverManager.getConnection(url, username, password);
+} catch (SQLException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+</code></pre><p> }</p>
+</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/05/09/hello-world/" class="archive-article-date">
-  <time datetime="2016-05-09T10:01:53.863Z" itemprop="datePublished">5月 9</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/09/hello-world/">Hello World</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/" data-id="cio572sts0000fstr1jw6jg08" class="article-share-link" data-share="baidu" data-title="jdbc连接Sql Server 2008">分享到</a>
+      
 
-    </header>
+      
+
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/10/Welcome to MarkdownPad 2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Welcome to MarkdownPad 2</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
       
       <aside id="sidebar">
