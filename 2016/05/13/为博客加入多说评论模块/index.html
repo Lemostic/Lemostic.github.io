@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>jdbc连接Sql Server 2008 | Lemostic</title>
+  <title>为博客加入多说评论模块 | Lemostic</title>
   <meta name="author" content="Lemostic">
   
   <meta name="description" content="github Hexo static blog">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="jdbc连接Sql Server 2008"/>
+  <meta property="og:title" content="为博客加入多说评论模块"/>
   <meta property="og:site_name" content="Lemostic"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> jdbc连接Sql Server 2008</h1>
+			<h1 class="title title-inverse "> 为博客加入多说评论模块</h1>
 		</div>		
 	
 
@@ -111,15 +111,9 @@
 	<div class="mypage">		
 	  		
 
-	  <ol>
-<li><p>下载驱动包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 `bc5c`</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数据库连接信息<br>driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver<br>url=jdbc:microsoft:sqlserver://<code>数据库连接ip地址</code>:1433;DatabaseName=<code>数据库名称</code><br>user=<code>sa</code><br>password=<code>数据库访问密码</code></p>
-</li>
-<li><p>java代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws ClassNotFoundException &#123;</span><br><span class="line">	String driverClass = <span class="string">"com.microsoft.jdbc.sqlserver.SQLServerDriver"</span>;</span><br><span class="line">	String url = <span class="string">"jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=test"</span>;</span><br><span class="line">	String username = <span class="string">"sa"</span>;</span><br><span class="line">	String password = <span class="string">"password"</span>;</span><br><span class="line">	Class.forName(driverClass);</span><br><span class="line">	try &#123;</span><br><span class="line">		Connection connection = DriverManager.getConnection(url, username, password);</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		// TODO Auto-generated catch block</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+	  <h4 id="1-登录多说网站http-duoshuo-com-，创建站点"><a href="#1-登录多说网站http-duoshuo-com-，创建站点" class="headerlink" title="1. 登录多说网站http://duoshuo.com/，创建站点:"></a>1. 登录<code>多说</code>网站<em><a href="http://duoshuo.com/" target="_blank" rel="external">http://duoshuo.com/</a></em>，创建站点:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以使用常用的社交账号进行登录，无需注册</span><br><span class="line">选择`我要安装`来创建一个站点</span><br><span class="line">录入基本的创建信息，点击`创建`按钮来创建一个站点</span><br></pre></td></tr></table></figure>
+<h4 id="2-修改主题配置文件："><a href="#2-修改主题配置文件：" class="headerlink" title="2. 修改主题配置文件："></a>2. 修改主题配置文件：</h4><p>我用的主题是<code>freemind</code>，主题地址<code>https://github.com/wzpan/hexo-theme-freemind.git</code>，修改主题的步骤请参考”修改Hexo博客主题”<br>    1.打开当前<code>主题路径/_config.yml</code>，找到<code>duoshuo_shortname</code>标签，设置为刚才创建站点时<code>多说域名</code>中的内容，请注意，没有前缀<code>http://</code>和后缀<code>.duoshuo.com</code>.</p>
+<h4 id="3-修改评论模块代码："><a href="#3-修改评论模块代码：" class="headerlink" title="3. 修改评论模块代码："></a>3. 修改评论模块代码：</h4><p>打开文件<code>Hexo\themes\freemind\layout\_partial\post\comment.ejs</code>，将原有代码替换为如下代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (page.comment)&#123; %&gt;</span><br><span class="line">&lt;section id=<span class="string">"comment"</span>&gt;</span><br><span class="line">  &lt;h2 class=<span class="string">"title"</span>&gt;&lt;%= __(<span class="string">'comment'</span>) %&gt;&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;% <span class="keyword">if</span>(theme.duoshuo_shortname) &#123; %&gt;</span><br><span class="line">  	 </span><br><span class="line">  	   &lt;!-- 多说评论框 start --&gt;</span><br><span class="line"> 		&lt;div class=<span class="string">"ds-thread"</span> data-thread-key=<span class="string">"&lt;%- page.path %&gt;"</span> data-title=<span class="string">"&lt;%- page.title %&gt;"</span> data-url=<span class="string">"&lt;%- page.permalink %&gt;"</span>&gt;&lt;/div&gt;</span><br><span class="line">		&lt;!-- 多说评论框 end --&gt;</span><br><span class="line">		&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">		&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">		var duoshuoQuery = &#123;short_name:<span class="string">"duoshuo_shortname"</span>&#125;;   &lt;!-- 替换这里的duoshuo_shortname为前面注册的shortname --&gt;</span><br><span class="line">			(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">				var ds = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">				ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">				ds.src = (document.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.unstable.js'</span>;</span><br><span class="line">				ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">				(document.getElementsByTagName(<span class="string">'head'</span>)[0] </span><br><span class="line">				 || document.getElementsByTagName(<span class="string">'body'</span>)[0]).appendChild(ds);</span><br><span class="line">			&#125;)();</span><br><span class="line">			&lt;/script&gt;</span><br><span class="line">		&lt;!-- 多说公共JS代码 end --&gt;</span><br><span class="line">  	 </span><br><span class="line">  &lt;% &#125; <span class="keyword">else</span> <span class="keyword">if</span>(config.disqus_shortname) &#123; %&gt;</span><br><span class="line">  	 &lt;div id=<span class="string">"disqus_thread"</span>&gt;</span><br><span class="line">     &lt;noscript&gt;Please <span class="built_in">enable</span> JavaScript to view the &lt;a href=<span class="string">"//disqus.com/?ref_noscript"</span>&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</span><br><span class="line">  	 &lt;/div&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
 	  
 	</div>
 
@@ -128,14 +122,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2016/05/13/为博客添加About导航/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2016/05/10/Welcome to MarkdownPad 2/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/05/13/为博客添加About导航/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -192,7 +186,7 @@
 
   	 
   	   <!-- ��˵���ۿ� start -->
- 		<div class="ds-thread" data-thread-key="2016/05/13/jdbc连接Sql-Server-2008/" data-title="jdbc连接Sql Server 2008" data-url="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/"></div>
+ 		<div class="ds-thread" data-thread-key="2016/05/13/为博客加入多说评论模块/" data-title="为博客加入多说评论模块" data-url="http://yoursite.com/2016/05/13/为博客加入多说评论模块/"></div>
 		<!-- ��˵���ۿ� end -->
 		<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 		<script type="text/javascript">
