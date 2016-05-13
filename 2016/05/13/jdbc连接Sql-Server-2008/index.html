@@ -9,7 +9,7 @@
 1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c
 
 数据库连接信息
-1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`$ user">
+1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=`数据库名称`$ user=s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jdbc连接Sql Server 2008">
 <meta property="og:url" content="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/index.html">
@@ -18,15 +18,15 @@
 1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c
 
 数据库连接信息
-1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`$ user">
-<meta property="og:updated_time" content="2016-05-13T04:03:22.819Z">
+1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=`数据库名称`$ user=s">
+<meta property="og:updated_time" content="2016-05-13T05:01:16.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jdbc连接Sql Server 2008">
 <meta name="twitter:description" content="下载驱动包
 1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c
 
 数据库连接信息
-1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`$ user">
+1234$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver$ url=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=`数据库名称`$ user=s">
   
     <link rel="alternate" href="/atom.xml" title="Lemostic" type="application/atom+xml">
   
@@ -106,28 +106,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 bc5c</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数据库连接信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver</span><br><span class="line">$ url=jdbc:microsoft:sqlserver://`数据库连接ip地址`:1433;DatabaseName=`数据库名称`</span><br><span class="line">$ user=`sa`</span><br><span class="line">$ password=`数据库访问密码`</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver</span><br><span class="line">$ url=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=`数据库名称`</span><br><span class="line">$ user=sa</span><br><span class="line">$ password=数据库访问密码</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>java代码<br> `<br> public static void main(String[] args) throws ClassNotFoundException {</p>
-<pre><code>String driverClass = &quot;com.microsoft.jdbc.sqlserver.SQLServerDriver&quot;;
-String url = &quot;jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=test&quot;;
-String username = &quot;sa&quot;;
-String password = &quot;password&quot;;
-Class.forName(driverClass);
-try {
-    Connection connection = DriverManager.getConnection(url, username, password);
-} catch (SQLException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-</code></pre><p> }<br> `</p>
-</li>
+<li><p>java代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws ClassNotFoundException &#123;</span><br><span class="line">	String driverClass = <span class="string">"com.microsoft.jdbc.sqlserver.SQLServerDriver"</span>;</span><br><span class="line">	String url = <span class="string">"jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=test"</span>;</span><br><span class="line">	String username = <span class="string">"sa"</span>;</span><br><span class="line">	String password = <span class="string">"password"</span>;</span><br><span class="line">	Class.forName(driverClass);</span><br><span class="line">	try &#123;</span><br><span class="line">		Connection connection = DriverManager.getConnection(url, username, password);</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		// TODO Auto-generated catch block</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/" data-id="cio5964ov000208tr6a0re2nx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/" data-id="cio59b3zg0001w0tr73mzimmg" class="article-share-link">Share</a>
       
       
     </footer>
