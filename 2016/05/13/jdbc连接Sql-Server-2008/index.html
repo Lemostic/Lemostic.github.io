@@ -4,17 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | Lemostic</title>
+  <title>jdbc连接Sql Server 2008 | Lemostic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="github Hexo static blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lemostic">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+  <meta name="description" content="下载驱动包
+1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 `bc5c`
+
+数据库连接信息driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriverurl=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=数据库名称user=sapassword=数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jdbc连接Sql Server 2008">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/index.html">
 <meta property="og:site_name" content="Lemostic">
-<meta property="og:description" content="github Hexo static blog">
+<meta property="og:description" content="下载驱动包
+1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 `bc5c`
+
+数据库连接信息driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriverurl=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=数据库名称user=sapassword=数">
+<meta property="og:updated_time" content="2016-05-13T05:22:23.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lemostic">
-<meta name="twitter:description" content="github Hexo static blog">
+<meta name="twitter:title" content="jdbc连接Sql Server 2008">
+<meta name="twitter:description" content="下载驱动包
+1$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 `bc5c`
+
+数据库连接信息driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriverurl=jdbc:microsoft:sqlserver://数据库连接ip地址:1433;DatabaseName=数据库名称user=sapassword=数">
   
     <link rel="alternative" href="/atom.xml" title="Lemostic" type="application/atom+xml">
   
@@ -200,103 +210,113 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-jdbc连接Sql-Server-2008" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/05/13/jdbc连接Sql-Server-2008/" class="article-date">
+  	<time datetime="2016-05-13T03:42:25.000Z" itemprop="datePublished">2016-05-13</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jdbc连接Sql Server 2008
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/13/jdbc连接Sql-Server-2008/" class="archive-article-date">
-  	<time datetime="2016-05-13T03:42:25.000Z" itemprop="datePublished">5月 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/13/jdbc连接Sql-Server-2008/">jdbc连接Sql Server 2008</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>下载驱动包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ https://yunpan.cn/cSgGFjDdLW9Qz  访问密码 `bc5c`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库连接信息<br>driverClass=com.microsoft.jdbc.sqlserver.SQLServerDriver<br>url=jdbc:microsoft:sqlserver://<code>数据库连接ip地址</code>:1433;DatabaseName=<code>数据库名称</code><br>user=<code>sa</code><br>password=<code>数据库访问密码</code></p>
+</li>
+<li><p>java代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws ClassNotFoundException &#123;</span><br><span class="line">	String driverClass = <span class="string">"com.microsoft.jdbc.sqlserver.SQLServerDriver"</span>;</span><br><span class="line">	String url = <span class="string">"jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=test"</span>;</span><br><span class="line">	String username = <span class="string">"sa"</span>;</span><br><span class="line">	String password = <span class="string">"password"</span>;</span><br><span class="line">	Class.forName(driverClass);</span><br><span class="line">	try &#123;</span><br><span class="line">		Connection connection = DriverManager.getConnection(url, username, password);</span><br><span class="line">	&#125; catch (SQLException e) &#123;</span><br><span class="line">		// TODO Auto-generated catch block</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/10/Welcome to MarkdownPad 2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Welcome to MarkdownPad 2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/10/Welcome to MarkdownPad 2/" class="archive-article-date">
-  	<time datetime="2016-05-10T02:51:01.091Z" itemprop="datePublished">5月 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/10/Welcome to MarkdownPad 2/">Welcome to MarkdownPad 2</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/09/hello-world/" class="archive-article-date">
-  	<time datetime="2016-05-09T10:01:53.863Z" itemprop="datePublished">5月 9</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/09/hello-world/">Hello World</a>
-    </h1>
-  
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jdbc连接Sql-Server-2008" data-title="jdbc连接Sql Server 2008" data-url="http://yoursite.com/2016/05/13/jdbc连接Sql-Server-2008/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -322,8 +342,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
