@@ -109,6 +109,29 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-07-02 </div>
+			<div class="article-title"><a href="/2016/07/02/cmd操作远程oracle数据库/" >cmd操作远程oracle数据库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="一、导出命令"><a href="#一、导出命令" class="headerlink" title="一、导出命令"></a>一、导出命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exp username/password@ipAddress/orcl`oracle的sid` file=c:\本地存放数据库备份的路径 full=y direct=y</span><br></pre></td></tr></table></figure>
+<p>full=y:指全部导出<br>direct=y:指以直接路径导出</p>
+<h2 id="二、导入命令"><a href="#二、导入命令" class="headerlink" title="二、导入命令"></a>二、导入命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imp username/password@ipAddress/orcl`oracle的sid` file=要导入远程数据库的文件 full=y</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2016/07/02/cmd操作远程oracle数据库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-06-25 </div>
 			<div class="article-title"><a href="/2016/06/25/时间引发的讨论/" >时间引发的讨论</a></div>						
 		</h3>
@@ -315,6 +338,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/07/02/cmd操作远程oracle数据库/" ><i class="fa fa-file-o"></i>cmd操作远程oracle数据库</a>
+      </li>
+    
+      <li>
         <a href="/2016/06/25/时间引发的讨论/" ><i class="fa fa-file-o"></i>时间引发的讨论</a>
       </li>
     
@@ -328,10 +355,6 @@
     
       <li>
         <a href="/2016/05/13/jdbc连接Sql-Server-2008/" ><i class="fa fa-file-o"></i>jdbc连接Sql Server 2008</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/10/Welcome to MarkdownPad 2/" ><i class="fa fa-file-o"></i>Welcome to MarkdownPad 2</a>
       </li>
     
   </ul>
